@@ -21,7 +21,7 @@ import {
 //   try {
 //     dispatch({ type: COUNTRY_LIST_REQUEST });
 
-//     const { data } = await axios.get("api/country");
+//     const { data } = await axios.get("https://countrys-app.herokuapp.com/api/country");
 //     dispatch({
 //       type: COUNTRY_LIST_SUCCESS,
 //       payload: data,
@@ -43,7 +43,7 @@ export const listCountrys =
     try {
       dispatch({ type: COUNTRY_LIST_REQUEST });
       const { data } = await axios.get(
-        `/api/country?keyword=${keyword}&pageNumber=${pageNumber}`
+        `https://countrys-app.herokuapp.com/api/country?keyword=${keyword}&pageNumber=${pageNumber}`
       );
       dispatch({
         type: COUNTRY_LIST_SUCCESS,
@@ -63,7 +63,7 @@ export const listCountrys =
 export const listCountryDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: COUNTRY_DETAILS_REQUEST });
-    const { data } = await axios.get(`/api/country/${id}`);
+    const { data } = await axios.get(`https://countrys-app.herokuapp.com/api/country/${id}`);
     dispatch({
       type: COUNTRY_DETAILS_SUCCESS,
       payload: data,
@@ -95,7 +95,7 @@ export const deleteCountry = (id) => async (dispatch, getState) => {
       },
     };
 
-    await axios.delete(`/api/country/${id}`, config);
+    await axios.delete(`https://countrys-app.herokuapp.com/api/country/${id}`, config);
 
     dispatch({
       type: COUNTRY_DELETE_SUCCESS,
@@ -127,7 +127,7 @@ export const createCountry = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`/api/country`, {}, config);
+    const { data } = await axios.post(`https://countrys-app.herokuapp.com/api/country`, {}, config);
 
     dispatch({
       type: COUNTRY_CREATE_SUCCESS,
@@ -162,7 +162,7 @@ export const updateCountry = (country) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `/api/country/${country._id}`,
+      `https://countrys-app.herokuapp.com/api/country/${country._id}`,
       country,
       config
     );
