@@ -11,7 +11,7 @@ const SearchResults = ({ match }) => {
 
   useEffect(() => {
     axios
-      .get(`/api/country/name/${match.params.name}`)
+      .get(`https://country-app-backends.herokuapp.com/api/country/name/${match.params.name}`)
       .then(({ data }) => {
         setCountrys(data);
       })
