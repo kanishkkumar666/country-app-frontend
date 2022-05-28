@@ -33,7 +33,7 @@ export const SignIn = (email, password) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      "https://country-app-backends.herokuapp.com/api/users/signin",
+      "/api/users/signin",
       { email, password },
       config
     );
@@ -63,7 +63,7 @@ export const SignUp = (name, email, password) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      "https://country-app-backends.herokuapp.com/api/users/signup",
+      "/api/users/signup",
       { name, email, password },
       config
     );
@@ -107,7 +107,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.get(`https://country-app-backends.herokuapp.com/api/users/${id}`, config);
+    const { data } = await axios.get(`/api/users/${id}`, config);
 
     dispatch({
       type: USER_DETAILS_SUCCESS,
@@ -136,7 +136,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.put(`https://country-app-backends.herokuapp.com/api/users/profile`, user, config);
+    const { data } = await axios.put(`/api/users/profile`, user, config);
 
     dispatch({
       type: USER_UPDATE_PROFILE_SUCCESS,
@@ -174,7 +174,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
     //     Authorization: `Bearer ${userInfo.token}`,
     //   },
     // };
-    await axios.delete(`https://country-app-backends.herokuapp.com/api/users/${id}`);
+    await axios.delete(`/api/users/${id}`);
 
     dispatch({
       type: USER_DELETE_SUCCESS,
@@ -197,7 +197,7 @@ export const listUsers =
       dispatch({ type: USERS_LIST_REQUEST });
 
       const { data } = await axios.get(
-        `https://country-app-backends.herokuapp.com/api/users?keyword=${keyword}&pageNumber=${pageNumber}`
+        `/api/users?keyword=${keyword}&pageNumber=${pageNumber}`
       );
 
       dispatch({
