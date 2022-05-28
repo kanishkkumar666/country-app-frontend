@@ -103,8 +103,8 @@ const CountryListScreen = ({ history, match }) => {
                 <th>RATING</th>
                 <th>REVIEWS</th>
                 <th>DESCRIPTION</th>
-                <th>CREATED AT</th>
-                <th>UPDATED AT</th>
+                {/* <th>CREATED AT</th>
+                <th>UPDATED AT</th> */}
                 <th>ACTION</th>
               </tr>
             </thead>
@@ -117,8 +117,8 @@ const CountryListScreen = ({ history, match }) => {
                   <td>{country.rating}</td>
                   <td>{country.numReviews}</td>
                   <td>{country.description}</td>
-                  <td>{country.createdAt}</td>
-                  <td>{country.updatedAt}</td>
+                  {/* <td>{country.createdAt}</td>
+                  <td>{country.updatedAt}</td> */}
                   <td>
                     <LinkContainer to={`/admin/country/${country._id}/edit`}>
                       <Button variant="light" className="btn-sm">
