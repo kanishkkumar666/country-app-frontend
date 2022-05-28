@@ -27,6 +27,7 @@ export const SignIn = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: USER_SIGNIN_REQUEST });
     const config = {
+      mode: 'no-cors',
       headers: {
         "Content-Type": "application/json",
       },
