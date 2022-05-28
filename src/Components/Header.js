@@ -116,12 +116,12 @@ const Header = ({ history }) => {
                       )}
                     </NavDropdown>
                     <Nav.Link onClick={signOutHandler}>
-                      {/* <i className="fas fa-user-tie"></i> SIGN OUT */}
+                      <i className="fas fa-user-tie"></i> SIGN OUT
                     </Nav.Link>
                   </Nav>
                 ) : (
                   <Nav>
-                    {/* <LinkContainer to="/signin">
+                    <LinkContainer to="/signin">
                       <Nav.Link>
                         <i className="fas fa-user-tie"></i> SIGN IN
                       </Nav.Link>
@@ -130,7 +130,7 @@ const Header = ({ history }) => {
                       <Nav.Link>
                         <i className="fas fa-user-tie"></i> SIGN UP
                       </Nav.Link>
-                    </LinkContainer> */}
+                    </LinkContainer>
                   </Nav>
                 )}
               </Nav>
