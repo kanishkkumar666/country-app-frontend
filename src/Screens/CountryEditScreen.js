@@ -64,7 +64,7 @@ const CountryEditScreen = ({ match, history }) => {
         },
       };
 
-      const { data } = await axios.post("/api/upload", formData, config);
+      const { data } = await axios.post("https://country-app-backends.herokuapp.com/api/upload", formData, config);
 
       setImage(data);
       setUploading(false);

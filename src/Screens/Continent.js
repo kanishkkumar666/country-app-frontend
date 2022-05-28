@@ -11,7 +11,7 @@ const Continent = ({ match }) => {
 
   useEffect(() => {
     axios
-      .get(`/api/country/continent/${match.params.continent}`)
+      .get(`https://country-app-backends.herokuapp.com/api/country/continent/${match.params.continent}`)
       .then(({ data }) => {
         setCountrys(data);
       })
