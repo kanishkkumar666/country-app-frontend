@@ -22,6 +22,7 @@ import {
   USERS_LIST_SUCCESS,
   USERS_LIST_FAIL,
 } from "../constants/userConstants";
+import { baseRouter } from "../Config";
 
 export const SignIn = (email, password) => async (dispatch) => {
   try {
@@ -32,7 +33,7 @@ export const SignIn = (email, password) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      "https://country-app-backends.herokuapp.com/api/users/signin",
+      `${baseRouter}/api/users/signin`,
       { email, password },
       config
     );
@@ -62,7 +63,7 @@ export const SignUp = (name, email, password) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      "https://country-app-backends.herokuapp.com/api/users/signup",
+      `${baseRouter}/api/users/signup`,
       { name, email, password },
       config
     );
@@ -106,7 +107,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.get(`https://country-app-backends.herokuapp.com/api/users/${id}`, config);
+    const { data } = await axios.get(`${baseRouter}/api/users/${id}`, config);
 
     dispatch({
       type: USER_DETAILS_SUCCESS,
@@ -135,7 +136,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.put(`https://country-app-backends.herokuapp.com/api/users/profile`, user, config);
+    const { data } = await axios.put(`${baseRouter}/api/users/profile`, user, config);
 
     dispatch({
       type: USER_UPDATE_PROFILE_SUCCESS,
@@ -173,7 +174,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
     //     Authorization: `Bearer ${userInfo.token}`,
     //   },
     // };
-    await axios.delete(`https://country-app-backends.herokuapp.com/api/users/${id}`);
+    await axios.delete(`${baseRouter}/api/users/${id}`);
 
     dispatch({
       type: USER_DELETE_SUCCESS,
@@ -196,7 +197,7 @@ export const listUsers =
       dispatch({ type: USERS_LIST_REQUEST });
 
       const { data } = await axios.get(
-        `https://country-app-backends.herokuapp.com/api/users?keyword=${keyword}&pageNumber=${pageNumber}`
+        `${baseRouter}/api/users?keyword=${keyword}&pageNumber=${pageNumber}`
       );
 
       dispatch({

@@ -9,6 +9,7 @@ import Loader from "../Components/Loader";
 import FormContainer from "../Components/FormContainer";
 import { listCountryDetails, updateCountry } from "../actions/countryActions";
 import { COUNTRY_UPDATE_RESET } from "../constants/countryConstants";
+import { baseRouter } from "../Config";
 
 const CountryEditScreen = ({ match, history }) => {
   const countryId = match.params.id;
@@ -64,7 +65,7 @@ const CountryEditScreen = ({ match, history }) => {
         },
       };
 
-      const { data } = await axios.post("https://country-app-backends.herokuapp.com/api/upload", formData, config);
+      const { data } = await axios.post(`${baseRouter}/api/upload`, formData, config);
 
       setImage(data);
       setUploading(false);

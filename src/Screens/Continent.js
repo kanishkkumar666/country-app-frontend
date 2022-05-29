@@ -4,6 +4,7 @@ import axios from "axios";
 
 import Countrys from "../Components/Country";
 import Message from "../Components/Message";
+import { baseRouter } from "../Config";
 
 const Continent = ({ match }) => {
   const [countrys, setCountrys] = useState([]);
@@ -11,7 +12,7 @@ const Continent = ({ match }) => {
 
   useEffect(() => {
     axios
-      .get(`https://country-app-backends.herokuapp.com/api/country/continent/${match.params.continent}`)
+      .get(`${baseRouter}/api/country/continent/${match.params.continent}`)
       .then(({ data }) => {
         setCountrys(data);
       })
